@@ -20,9 +20,7 @@ exports.getBooks = async (req, res) => {
 
 exports.deleteBookById= async (req,res) => {
     const {_id} = req.body;
-    //const _id=req.body._id;
-
-    Books.deleteOne({_id:_id}).then((data) => { // aynı isimde olursa _id kalabilir bu _id:_id demek
+    Books.deleteOne({_id:_id}).then((data) => {
         res.json(data);
     }).catch((err) => {
         res.json(err)
@@ -32,8 +30,6 @@ exports.deleteBookById= async (req,res) => {
 
 exports.deleteBookByName= async (req,res) => {
     const {name} = req.body;
-    //const _id=req.body._id;
-
     Books.deleteOne({name}).then((data) => { 
         res.json("Silindi: "+ name);
     }).catch((err) => {
