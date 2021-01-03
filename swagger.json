@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a case study for Getir",
+        "version": "1.0.0",
+        "title": "Getir Case Study",
+        "termsOfService": "http://swagger.io/terms/",
+        "license": {
+            "name": "MIT",
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    },
+    "tags": [],
+    "definitions": {
+        "Books": {
+            "required": [],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        }
+    },
+    "paths": {
+        "/books/createBook": {
+            "post": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Filter records by created date and counts",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Filter by count and date",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    },
+                    "404": {
+                        "description": "Failed. Not found"
+                    }
+                }
+            }
+        },
+        "/books/getBooks": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "get all books",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Filter by count and date"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    },
+                    "404": {
+                        "description": "Failed. Not found"
+                    }
+                }
+            }
+        }
+    }
+}
