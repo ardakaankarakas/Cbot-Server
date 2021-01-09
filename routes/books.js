@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 router.post('/createBook', books.createBook);
 router.get('/getBooks', books.getBooks);
-router.delete('/deleteBookById',books.deleteBookById );
+router.post('/deleteBookById',books.deleteBookById );
 router.delete('/deleteBookByName',books.deleteBookByName );
 
 module.exports = router;

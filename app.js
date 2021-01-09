@@ -6,6 +6,7 @@ var logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config({path: __dirname + '/.env'});
 
 var booksRouter = require('./routes/books');
@@ -16,7 +17,7 @@ var server = require("http").createServer(app);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
